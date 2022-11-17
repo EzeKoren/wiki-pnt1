@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32804.467
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tp-grupal", "tp-grupal.csproj", "{CFD6F511-447D-4594-8188-6A70449B1D01}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CFD6F511-447D-4594-8188-6A70449B1D01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFD6F511-447D-4594-8188-6A70449B1D01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFD6F511-447D-4594-8188-6A70449B1D01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFD6F511-447D-4594-8188-6A70449B1D01}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3AFAB013-3C70-4555-B31F-9D3343F31E97}
+	EndGlobalSection
+EndGlobal
