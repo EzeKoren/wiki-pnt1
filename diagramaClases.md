@@ -3,7 +3,6 @@
 ```mermaid
 classDiagram
     class Pagina {
-        -string claveAdmin
         +MostrarArticulo(string _id) Articulo
         +Buscar(string query) ArrayList~Articulo~
     }
@@ -24,6 +23,7 @@ classDiagram
     }
 
     class Repositorio {
+        -string claveAdmin
         +Get(string _id) Articulo
         +GetAll() ArrayList~Articulo~
         +GetCategoria(string categoria) ArrayList~Articulo~
