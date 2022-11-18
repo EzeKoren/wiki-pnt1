@@ -1,0 +1,36 @@
+﻿@model Articulo
+@{
+    ViewData["Title"] = "Crear artículo";
+}
+
+<h1>Crear artículo</h1>
+
+
+<form id="edicion" method="post" enctype="multipart/form-data" asp-controller="Admin" asp-action="Crear">
+    @*TÍTULO*@
+    <div class="mb-3">
+        <label for="titulo" class="form-label">Titulo</label>
+        <input asp-for="titulo" class="form-control" id="titulo">
+    </div>
+    
+    @*CATEGORÍAS*@
+    <div class="mb-3">
+        <label for="titulo" class="form-label">Categorías</label>
+        <input asp-for="categorias" class="form-control" id="categorias" aria-describedby="categorias-help">
+        <div id="categorias-help" class="form-text">Separadas con coma</div>
+    </div>
+
+    @*CONTENIDO*@
+    <div class="mb-3">
+        <label for="titulo" class="form-label">Contenido</label>
+        <textarea asp-for="contenido" class="form-control" id="contenido"></textarea>
+    </div>
+
+    @*IMAGEN*@
+    <div class="mb-3">
+        <label for="titulo" class="form-label">URL a la imagen</label>
+        <input asp-for="imagen" class="form-control" id="imagen">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
