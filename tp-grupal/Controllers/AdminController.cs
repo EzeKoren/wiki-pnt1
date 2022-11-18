@@ -5,7 +5,7 @@ namespace tp_grupal.Controllers
 {
     public class AdminController : Controller
     {
-        private Repositorio repositorio = new Repositorio();
+        private static Repositorio repositorio = new Repositorio();
 
         public IActionResult Dashboard()
         {
@@ -24,16 +24,16 @@ namespace tp_grupal.Controllers
         }
 
         [HttpPost]
-        public IActionResult Crear(Articulo art)
+        public IActionResult Crear(IFormCollection col)
         {
-            //List<string> cat = categorias.Split(",").Select(c => c.Trim()).ToList();
+            List<string> cat = col["categorias"][0].Split(",").Select(c => c.Trim()).ToList();
 
-            //Articulo art = new Articulo(
-            //    titulo,
-            //    cat,
-            //    contenido,
-            //    imagen
-            //);
+            Articulo art = new Articulo(
+                col["titulo"][0],
+                cat,
+                col["contenido"][0],
+                col["imagen"][0]
+            );
 
             repositorio.Agregar(art);
 
