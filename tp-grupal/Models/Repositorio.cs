@@ -29,7 +29,7 @@ namespace tp_grupal.Models
             return list;
         }
 
-        public List<Articulo> GetCategoria (string categoria)
+        public List<Articulo> GetCategoria (Categoria categoria)
         {
             List<Articulo> list = new List<Articulo>();
             foreach (string id in this.articulos.Keys)
