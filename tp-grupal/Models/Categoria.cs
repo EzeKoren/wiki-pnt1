@@ -5,12 +5,10 @@ namespace tp_grupal.Models
     public class Categoria
     {
         public string nombre { get; set; }
-        public string id_categoria { get; set; }
-
-        public Categoria(string nombre, string id)
+  
+        public Categoria(string nombre)
         {
             this.nombre = nombre;
-            this.id_categoria = id;
         }
     }
 }

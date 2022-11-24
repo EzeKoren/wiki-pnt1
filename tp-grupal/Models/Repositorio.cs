@@ -8,11 +8,14 @@ namespace tp_grupal.Models
 
         // TODO: Cambiar por DB
         private SortedList<string, Articulo> articulos;
-
+        private SortedList<string, Categoria> categorias;
+        private SortedList<string, Articulo_Categoria> articulos_cat;
 
         public Repositorio ()
         {
             this.articulos = new SortedList<string, Articulo>();
+            this.categorias = new SortedList<string, Categoria>();
+            this.articulos_cat = new SortedList<string, Articulo_Categoria>();
         }
 
         public Articulo Get (string id) { 
@@ -51,7 +54,7 @@ namespace tp_grupal.Models
                 Articulo articulo = this.articulos[id];
                 if (
                     articulo.titulo.Contains(query) ||
-                    articulo.categorias.Any(categoria => categoria.Contains(query))
+                    articulo.categorias.Any(categoria => categoria.Equals(query))
                 ) {
                     list.Add(articulo);
                 } 
@@ -66,7 +69,6 @@ namespace tp_grupal.Models
             Articulo a = new Articulo(
                 id, 
                 art.titulo, 
-                art.categorias, 
                 art.contenido, 
                 art.imagen
             );
@@ -80,7 +82,6 @@ namespace tp_grupal.Models
             Articulo a = new Articulo(
                 id,
                 art.titulo,
-                art.categorias,
                 art.contenido,
                 art.imagen
             );
@@ -91,6 +92,14 @@ namespace tp_grupal.Models
         public void Eliminar (string id)
         {
             this.articulos.Remove(id);
+        }
+
+
+        public void addCategoria(string catItem, string IdArt)
+        {
+            Categoria cat = new Categoria ()
+
+
         }
     }
 }

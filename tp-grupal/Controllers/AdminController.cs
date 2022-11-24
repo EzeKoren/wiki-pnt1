@@ -29,13 +29,17 @@ namespace tp_grupal.Controllers
             List<string> cat = col["categorias"][0].Split(",").Select(c => c.Trim()).ToList();
 
             Articulo art = new Articulo(
-                col["titulo"][0],
-                cat,
-                col["contenido"][0],
-                col["imagen"][0]
-            );
+               col["titulo"][0],
+               col["contenido"][0],
+               col["imagen"][0]
+           );
+             string IdArt = repositorio.Agregar(art);
 
-            repositorio.Agregar(art);
+            foreach (string catItem in cat)
+            {
+                repositorio.addCategoria(catItem, IdArt);
+
+            }
 
             return View();
         }

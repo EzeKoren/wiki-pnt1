@@ -2,7 +2,7 @@
 {
     public class Articulo_Categoria
     {
-        public string id_categoria { get; private set; }
+        public string nombre { get; private set; }
         public string _id { get; private set; }
 
     }
