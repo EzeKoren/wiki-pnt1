@@ -1,19 +1,27 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using tp_grupal.Data;
 using tp_grupal.Models;
 
 namespace tp_grupal.Controllers
 {
     public class AdminController : Controller
     {
+        private readonly ApplicationDbContext _db;
+
+        public AdminController(ApplicationDbContext db)
+        {
+            _db = db;
+        }
+
         public IActionResult Index(string query = null)
         {
             List<Articulo> articulos;
             if (query == null) 
             { 
-                articulos = Repositorio.GetAll();
+                articulos = GetAll();
             } else
             {
-                articulos = Repositorio.Buscar(query);
+                articulos = Buscar(query);
             }
 
             return View(articulos);
@@ -27,21 +35,27 @@ namespace tp_grupal.Controllers
         [HttpPost]
         public IActionResult Crear(IFormCollection col)
         {
-            Articulo art = new Articulo(
-                col["titulo"][0],
-                col["categoria"][0],
-                col["contenido"][0],
-                col["imagen"][0]
-            );
+            try
+            {
+                Articulo art = new Articulo(
+                    col["titulo"][0],
+                    col["categoria"][0],
+                    col["contenido"][0],
+                    col["imagen"][0]
+                );
 
-            Repositorio.Agregar(art);
+                Agregar(art);
 
-            return Redirect("/admin");
+                return Redirect("/admin");
+            } catch(Exception e)
+            {
+                
+            }
         }
 
         public IActionResult Editar(string id)
         {
-            Articulo art = Repositorio.Get(id);
+            Articulo art = Get(id);
             return View(art);
         }
 
@@ -55,16 +69,76 @@ namespace tp_grupal.Controllers
                 col["imagen"][0]
             );
 
-            Repositorio.Modificar(col["_id"][0], art);
+            Modificar(col["_id"][0], art);
 
             return Redirect("/admin");
         }
 
         public IActionResult Eliminar(string id)
         {
-            Repositorio.Eliminar(id);
+            EliminarDB(id);
 
             return Redirect("/admin");
+        }
+
+
+
+        // DB
+
+        public Articulo Get(string id)
+        {
+            return _db.Articulos.Find(id);
+        }
+
+        public List<Articulo> GetAll()
+        {
+            return _db.Articulos.ToList();
+        }
+
+        public List<Articulo> Buscar(string query)
+        {
+            return _db.Articulos.Where(art =>
+                art.titulo.Contains(query) ||
+                art.categoria.Contains(query)
+            ).ToList();
+        }
+
+
+        public string Agregar(Articulo art)
+        {
+            string id = Guid.NewGuid().ToString();
+
+            Articulo a = new Articulo(
+                id,
+                art.titulo,
+                art.categoria,
+                art.contenido,
+                art.imagen
+            );
+
+            _db.Articulos.Add(a);
+            _db.SaveChanges();
+            return id;
+        }
+
+        public void Modificar(string id, Articulo art)
+        {
+            Articulo a = new Articulo(
+                id,
+                art.titulo,
+                art.categoria,
+                art.contenido,
+                art.imagen
+            );
+
+            _db.Articulos.Update(a);
+            _db.SaveChanges();
+        }
+
+        public void EliminarDB(string id)
+        {
+            _db.Articulos.Remove(_db.Articulos.Find(id));
+            _db.SaveChanges();
         }
     }
 }

@@ -2,6 +2,7 @@
 using NuGet.Protocol;
 using NuGet.Protocol.Core.Types;
 using System.Diagnostics;
+using tp_grupal.Data;
 using tp_grupal.Models;
 
 namespace tp_grupal.Controllers
@@ -9,9 +10,11 @@ namespace tp_grupal.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDbContext _db;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext db)
         {
+            _db = db;
             _logger = logger;
         }
 
@@ -20,11 +23,11 @@ namespace tp_grupal.Controllers
             List<Articulo> articulos;
             if (query == null)
             {
-                articulos = Repositorio.GetAll();
+                articulos = GetAll();
             }
             else
             {
-                articulos = Repositorio.Buscar(query);
+                articulos = Buscar(query);
             }
 
             return View(articulos);
@@ -32,8 +35,8 @@ namespace tp_grupal.Controllers
 
         public IActionResult Articulo(string id)
         {
-            Articulo art = Repositorio.Get(id);
-            List<Articulo> otros = Repositorio.GetAll();
+            Articulo art = Get(id);
+            List<Articulo> otros = GetAll();
             Tuple<Articulo, List<Articulo>> model = new Tuple<Articulo, List<Articulo>>(art, otros);
             return View(model);
         }
@@ -43,5 +46,25 @@ namespace tp_grupal.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        // DB
+
+        public List<Articulo> GetAll()
+        {
+            return _db.Articulos.ToList();
+        }
+        
+        public Articulo Get(string id)
+        {
+            return _db.Articulos.Find(id);
+        }
+        public List<Articulo> Buscar(string query)
+        {
+            return _db.Articulos.Where(art =>
+                art.titulo.Contains(query) ||
+                art.categoria.Contains(query)
+            ).ToList();
+        }
+
     }
 }

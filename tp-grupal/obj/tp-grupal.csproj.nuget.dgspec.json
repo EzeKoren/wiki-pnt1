@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Uriel\\Desktop\\PNT1 - trabajo final\\wiki-pnt1\\tp-grupal\\tp-grupal.csproj": {}
+    "E:\\TP PNT1\\tp-grupal\\tp-grupal.csproj": {}
   },
   "projects": {
-    "D:\\Uriel\\Desktop\\PNT1 - trabajo final\\wiki-pnt1\\tp-grupal\\tp-grupal.csproj": {
+    "E:\\TP PNT1\\tp-grupal\\tp-grupal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Uriel\\Desktop\\PNT1 - trabajo final\\wiki-pnt1\\tp-grupal\\tp-grupal.csproj",
+        "projectUniqueName": "E:\\TP PNT1\\tp-grupal\\tp-grupal.csproj",
         "projectName": "tp-grupal",
-        "projectPath": "D:\\Uriel\\Desktop\\PNT1 - trabajo final\\wiki-pnt1\\tp-grupal\\tp-grupal.csproj",
-        "packagesPath": "C:\\Users\\Uriel\\.nuget\\packages\\",
-        "outputPath": "D:\\Uriel\\Desktop\\PNT1 - trabajo final\\wiki-pnt1\\tp-grupal\\obj\\",
+        "projectPath": "E:\\TP PNT1\\tp-grupal\\tp-grupal.csproj",
+        "packagesPath": "C:\\Users\\EzeKoren\\.nuget\\packages\\",
+        "outputPath": "E:\\TP PNT1\\tp-grupal\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Uriel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\EzeKoren\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
