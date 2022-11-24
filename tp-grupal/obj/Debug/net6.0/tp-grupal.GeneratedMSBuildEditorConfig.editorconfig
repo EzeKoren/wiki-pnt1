@@ -8,49 +8,49 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = tp_grupal
 build_property.RootNamespace = tp_grupal
-build_property.ProjectDir = E:\TP PNT1\tp-grupal\
+build_property.ProjectDir = D:\Uriel\Desktop\PNT1 - trabajo final\wiki-pnt1\tp-grupal\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = E:\TP PNT1\tp-grupal
+build_property.MSBuildProjectDirectory = D:\Uriel\Desktop\PNT1 - trabajo final\wiki-pnt1\tp-grupal
 build_property._RazorSourceGeneratorDebug = 
 
-[E:/TP PNT1/tp-grupal/Views/Admin/Crear.cshtml]
+[D:/Uriel/Desktop/PNT1 - trabajo final/wiki-pnt1/tp-grupal/Views/Admin/Crear.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ3JlYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/TP PNT1/tp-grupal/Views/Admin/Editar.cshtml]
+[D:/Uriel/Desktop/PNT1 - trabajo final/wiki-pnt1/tp-grupal/Views/Admin/Editar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdGFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/TP PNT1/tp-grupal/Views/Admin/Index.cshtml]
+[D:/Uriel/Desktop/PNT1 - trabajo final/wiki-pnt1/tp-grupal/Views/Admin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/TP PNT1/tp-grupal/Views/Home/Articulo.cshtml]
+[D:/Uriel/Desktop/PNT1 - trabajo final/wiki-pnt1/tp-grupal/Views/Home/Articulo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBcnRpY3Vsby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/TP PNT1/tp-grupal/Views/Home/Index.cshtml]
+[D:/Uriel/Desktop/PNT1 - trabajo final/wiki-pnt1/tp-grupal/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/TP PNT1/tp-grupal/Views/Shared/Error.cshtml]
+[D:/Uriel/Desktop/PNT1 - trabajo final/wiki-pnt1/tp-grupal/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/TP PNT1/tp-grupal/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Uriel/Desktop/PNT1 - trabajo final/wiki-pnt1/tp-grupal/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/TP PNT1/tp-grupal/Views/_ViewImports.cshtml]
+[D:/Uriel/Desktop/PNT1 - trabajo final/wiki-pnt1/tp-grupal/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/TP PNT1/tp-grupal/Views/_ViewStart.cshtml]
+[D:/Uriel/Desktop/PNT1 - trabajo final/wiki-pnt1/tp-grupal/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/TP PNT1/tp-grupal/Views/Shared/_Layout.cshtml]
+[D:/Uriel/Desktop/PNT1 - trabajo final/wiki-pnt1/tp-grupal/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-l4askovpmc

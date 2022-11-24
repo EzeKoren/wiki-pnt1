@@ -9843,25 +9843,26 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Microsoft.EntityFrameworkCore >= 6.0.10",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.10",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.10",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.10"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\EzeKoren\\.nuget\\packages\\": {}
+    "C:\\Users\\Uriel\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\TP PNT1\\tp-grupal\\tp-grupal.csproj",
+      "projectUniqueName": "D:\\Uriel\\Desktop\\PNT1 - trabajo final\\wiki-pnt1\\tp-grupal\\tp-grupal.csproj",
       "projectName": "tp-grupal",
-      "projectPath": "E:\\TP PNT1\\tp-grupal\\tp-grupal.csproj",
-      "packagesPath": "C:\\Users\\EzeKoren\\.nuget\\packages\\",
-      "outputPath": "E:\\TP PNT1\\tp-grupal\\obj\\",
+      "projectPath": "D:\\Uriel\\Desktop\\PNT1 - trabajo final\\wiki-pnt1\\tp-grupal\\tp-grupal.csproj",
+      "packagesPath": "C:\\Users\\Uriel\\.nuget\\packages\\",
+      "outputPath": "D:\\Uriel\\Desktop\\PNT1 - trabajo final\\wiki-pnt1\\tp-grupal\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\EzeKoren\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Uriel\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9887,6 +9888,10 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[6.0.10, )"
+          },
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
             "version": "[6.0.10, )"

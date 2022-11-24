@@ -1,7 +1,12 @@
-﻿namespace tp_grupal.Models
+﻿using MessagePack;
+using System.ComponentModel.DataAnnotations;
+using KeyAttribute = System.ComponentModel.DataAnnotations.KeyAttribute;
+
+namespace tp_grupal.Models
 {
     public class Articulo
     {
+        [Key]
         public string _id { get; private set; }
         public string titulo { get; private set; }
         public string categoria { get; private set; }
