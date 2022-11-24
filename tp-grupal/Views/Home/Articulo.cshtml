@@ -1,22 +1,37 @@
-﻿@model Articulo
+﻿@model Tuple<Articulo, List<Articulo>>
 @{
-    ViewData["Title"] = Model.titulo;
+    ViewData["Title"] = Model.Item1.titulo;
 }
 
 <div class="articulo-view container">
     <div class="row">
-        <div class="col-s3">
-            ARTICULOS
+        <div class="col-3 lista-articulos">
+            <h2>Más artículos</h2>
+            <ul>
+                @foreach (Articulo a in Model.Item2)
+                {
+                    <li class="link-articulo">
+                        <a asp-controller="Home" asp-action="Articulo" asp-route-id="@a._id">@a.titulo</a>
+                    </li>
+                }
+            </ul>
         </div>
-        <div class="col-s5">
+        <div class="col-5 articulo">
             <div class="texto">
-                <h1 class="display-1">@Model.titulo</h1>
+                <h1 class="display-1">@Model.Item1.titulo</h1>
                 <br>
-                <div class="contenido">@Model.contenido</div>
+                <div class="contenido">@Model.Item1.contenido</div>
             </div>
         </div>
-    </div>
-    <div class="imagen col-s4">
-        <img src="@Model.imagen">
+        <div class="imagen col-4">
+            <img class="img-fluid" src="@Model.Item1.imagen">
+        </div>
     </div>
 </div>
+
+<style>
+    .lista-articulos {
+        height: 100%
+        overflow-y: auto
+    }
+</style>

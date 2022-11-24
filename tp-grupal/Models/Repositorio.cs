@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using Newtonsoft.Json;
+using System.Linq;
+using System.Text.Json;
 
 namespace tp_grupal.Models
 {

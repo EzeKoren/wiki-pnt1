@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using NuGet.Protocol;
 using NuGet.Protocol.Core.Types;
 using System.Diagnostics;
 using tp_grupal.Models;
@@ -32,7 +33,9 @@ namespace tp_grupal.Controllers
         public IActionResult Articulo(string id)
         {
             Articulo art = Repositorio.Get(id);
-            return View(art);
+            List<Articulo> otros = Repositorio.GetAll();
+            Tuple<Articulo, List<Articulo>> model = new Tuple<Articulo, List<Articulo>>(art, otros);
+            return View(model);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
