@@ -1,8 +1,30 @@
-﻿@{
+﻿@model List<Articulo>
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container">
+    <form id="buscar">
+        <div class="input-group mb-3">
+            <input type="text" name="query" id="query" class="form-control" placeholder="Buscar artículos">
+            <input type="submit" class="btn btn-outline-secondary" id="button-addon2" value="Buscar">
+        </div>
+    </form>
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        @foreach (var articulo in Model) {
+            <div class="col">
+                <div class="card shadow-sm text-center" style="width: 18rem;">
+                    <img src="@articulo.imagen" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">@articulo.titulo</h5>
+                        <p class="card-text">
+                            <span class="badge bg-primary rounded-pill">@articulo.categoria</span>
+                        </p>
+                        <a asp-controller="Home" asp-action="Articulo" asp-route-id="@articulo._id" class="btn btn-primary">Leer más</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 </div>

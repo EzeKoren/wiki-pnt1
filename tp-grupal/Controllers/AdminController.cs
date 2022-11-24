@@ -5,11 +5,17 @@ namespace tp_grupal.Controllers
 {
     public class AdminController : Controller
     {
-        private static Repositorio repositorio = new Repositorio();
-
-        public IActionResult Dashboard()
+        public IActionResult Index(string query = null)
         {
-            List<Articulo> articulos = repositorio.GetAll();
+            List<Articulo> articulos;
+            if (query == null) 
+            { 
+                articulos = Repositorio.GetAll();
+            } else
+            {
+                articulos = Repositorio.Buscar(query);
+            }
+
             return View(articulos);
         }
 
@@ -18,26 +24,47 @@ namespace tp_grupal.Controllers
             return View();
         }
 
-        public IActionResult Editar(Articulo art)
-        {
-            return View(art);
-        }
-
         [HttpPost]
         public IActionResult Crear(IFormCollection col)
         {
-            List<string> cat = col["categorias"][0].Split(",").Select(c => c.Trim()).ToList();
-
             Articulo art = new Articulo(
                 col["titulo"][0],
-                cat,
+                col["categoria"][0],
                 col["contenido"][0],
                 col["imagen"][0]
             );
 
-            repositorio.Agregar(art);
+            Repositorio.Agregar(art);
 
-            return View();
+            return Redirect("/admin");
+        }
+
+        public IActionResult Editar(string id)
+        {
+            Articulo art = Repositorio.Get(id);
+            return View(art);
+        }
+
+        [HttpPost]
+        public IActionResult Editar(IFormCollection col)
+        {
+            Articulo art = new Articulo(
+                col["titulo"][0],
+                col["categoria"][0],
+                col["contenido"][0],
+                col["imagen"][0]
+            );
+
+            Repositorio.Modificar(col["_id"][0], art);
+
+            return Redirect("/admin");
+        }
+
+        public IActionResult Eliminar(string id)
+        {
+            Repositorio.Eliminar(id);
+
+            return Redirect("/admin");
         }
     }
 }

@@ -1,0 +1,22 @@
+﻿@model Articulo
+@{
+    ViewData["Title"] = Model.titulo;
+}
+
+<div class="articulo-view container">
+    <div class="row">
+        <div class="col-s3">
+            ARTICULOS
+        </div>
+        <div class="col-s5">
+            <div class="texto">
+                <h1 class="display-1">@Model.titulo</h1>
+                <br>
+                <div class="contenido">@Model.contenido</div>
+            </div>
+        </div>
+    </div>
+    <div class="imagen col-s4">
+        <img src="@Model.imagen">
+    </div>
+</div>
