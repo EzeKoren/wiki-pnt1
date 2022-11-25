@@ -35,8 +35,7 @@ namespace tp_grupal.Controllers
         [HttpPost]
         public IActionResult Crear(IFormCollection col)
         {
-            try
-            {
+            //try {
                 Articulo art = new Articulo(
                     col["titulo"][0],
                     col["categoria"][0],
@@ -47,10 +46,10 @@ namespace tp_grupal.Controllers
                 Agregar(art);
 
                 return Redirect("/admin");
-            } catch(Exception e)
-            {
-                
-            }
+            //} catch(Exception)
+            //{
+                // COMO MUESTRO EL ERROR?
+            //}
         }
 
         public IActionResult Editar(string id)
