@@ -5,32 +5,32 @@
 
 <h1>Edición de artículo</h1>
 
-<form id="edicion" method="post" enctype="multipart/form-data" asp-controller="Admin" asp-action="Editar">
+<form id="edicion" method="post" asp-controller="Admin" asp-action="Editar">
     @*ID*@
-    <input name="_id" type="text" id="_id" value="@Model._id" style="display: none;">
+    <input asp-for="_id" id="_id" value="@Model._id" style="display: none;">
 
     @*TÍTULO*@
     <div class="mb-3">
-        <label for="titulo" class="form-label">Titulo</label>
-        <input name="titulo" type="text" class="form-control" id="titulo" value="@Model.titulo">
+        <label asp-for="titulo" class="form-label">Titulo</label>
+        <input asp-for="titulo" type="text" class="form-control" id="titulo" value="@Model.titulo">
     </div>
 
     @*CATEGORÍA*@
     <div class="mb-3">
-        <label for="titulo" class="form-label">Categoría</label>
-        <input name="categoria" type="text" class="form-control" id="categoria" value="@Model.categoria">
+        <label asp-for="categoria" class="form-label">Categoría</label>
+        <input asp-for="categoria" type="text" class="form-control" id="categoria" value="@Model.categoria">
     </div>
 
     @*CONTENIDO*@
     <div class="mb-3">
-        <label for="titulo" class="form-label">Contenido</label>
-        <textarea name="contenido" class="form-control" id="contenido">@Model.contenido</textarea>
+        <label asp-for="contenido" class="form-label">Contenido</label>
+        <textarea asp-for="contenido" class="form-control" id="contenido">@Model.contenido</textarea>
     </div>
 
     @*IMAGEN*@
     <div class="mb-3">
-        <label for="titulo" class="form-label">URL a la imagen</label>
-        <input name="imagen" type="text" class="form-control" id="imagen" value="@Model.imagen">
+        <label asp-for="imagen" class="form-label">URL a la imagen</label>
+        <input asp-for="imagen" type="text" class="form-control" id="imagen" value="@Model.imagen">
     </div>
 
     <button type="submit" class="btn btn-primary">Guardar</button>

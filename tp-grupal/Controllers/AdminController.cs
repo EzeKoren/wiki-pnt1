@@ -1,22 +1,22 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using tp_grupal.Data;
 using tp_grupal.Models;
 
 namespace tp_grupal.Controllers
 {
     public class AdminController : Controller
     {
-        public IActionResult Index(string query = null)
-        {
-            List<Articulo> articulos;
-            if (query == null) 
-            { 
-                articulos = Repositorio.GetAll();
-            } else
-            {
-                articulos = Repositorio.Buscar(query);
-            }
+        private readonly ApplicationDbContext _context;
 
-            return View(articulos);
+        public AdminController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
+        public IActionResult Index()
+        {
+            var listado = _context.Articulos.ToList();
+            return View(listado);
         }
 
         public IActionResult Crear()
@@ -25,45 +25,42 @@ namespace tp_grupal.Controllers
         }
 
         [HttpPost]
-        public IActionResult Crear(IFormCollection col)
+        public IActionResult Crear(Articulo art)
         {
-            Articulo art = new Articulo(
-                col["titulo"][0],
-                col["categoria"][0],
-                col["contenido"][0],
-                col["imagen"][0]
-            );
+            if (ModelState.IsValid)
+            {
+                _context.Articulos.Add(art);
+                _context.SaveChanges();
+                return Redirect("/admin");
+            }
 
-            Repositorio.Agregar(art);
+            return View(art);
 
-            return Redirect("/admin");
         }
 
-        public IActionResult Editar(string id)
+        public IActionResult Editar(int id)
         {
-            Articulo art = Repositorio.Get(id);
+            var art = _context.Articulos.Find(id);
             return View(art);
         }
 
         [HttpPost]
-        public IActionResult Editar(IFormCollection col)
+        public IActionResult Editar(Articulo art)
         {
-            Articulo art = new Articulo(
-                col["titulo"][0],
-                col["categoria"][0],
-                col["contenido"][0],
-                col["imagen"][0]
-            );
+            if (ModelState.IsValid)
+            {
+                _context.Articulos.Update(art);
+                _context.SaveChanges();
+                return Redirect("/admin");
+            }
 
-            Repositorio.Modificar(col["_id"][0], art);
-
-            return Redirect("/admin");
+            return View(art);
         }
 
-        public IActionResult Eliminar(string id)
+        public IActionResult Eliminar(int id)
         {
-            Repositorio.Eliminar(id);
-
+            _context.Articulos.Remove(_context.Articulos.Find(id));
+            _context.SaveChanges();
             return Redirect("/admin");
         }
     }

@@ -23,8 +23,11 @@ namespace tp_grupal.Migrations
 
             modelBuilder.Entity("tp_grupal.Models.Articulo", b =>
                 {
-                    b.Property<string>("_id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("_id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("_id"), 1L, 1);
 
                     b.Property<string>("categoria")
                         .IsRequired()

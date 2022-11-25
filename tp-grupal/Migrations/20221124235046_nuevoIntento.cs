@@ -4,7 +4,7 @@
 
 namespace tp_grupal.Migrations
 {
-    public partial class addArticulo : Migration
+    public partial class nuevoIntento : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,7 +12,8 @@ namespace tp_grupal.Migrations
                 name: "Articulos",
                 columns: table => new
                 {
-                    _id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    _id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     titulo = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     categoria = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     contenido = table.Column<string>(type: "nvarchar(max)", nullable: false),

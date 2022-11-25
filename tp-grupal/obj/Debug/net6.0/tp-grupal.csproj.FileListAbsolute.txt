@@ -526,3 +526,4 @@ D:\Uriel\Desktop\PNT1 - trabajo final\wiki-pnt1\tp-grupal\obj\Debug\net6.0\refin
 D:\Uriel\Desktop\PNT1 - trabajo final\wiki-pnt1\tp-grupal\obj\Debug\net6.0\tp-grupal.pdb
 D:\Uriel\Desktop\PNT1 - trabajo final\wiki-pnt1\tp-grupal\obj\Debug\net6.0\tp-grupal.genruntimeconfig.cache
 D:\Uriel\Desktop\PNT1 - trabajo final\wiki-pnt1\tp-grupal\obj\Debug\net6.0\ref\tp-grupal.dll
+D:\Uriel\Desktop\PNT1 - trabajo final\wiki-pnt1\tp-grupal\bin\Debug\net6.0\Articulos.json

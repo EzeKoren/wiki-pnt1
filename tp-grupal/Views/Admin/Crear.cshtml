@@ -5,29 +5,29 @@
 
 <h1>Crear artículo</h1>
 
-<form id="creacion" method="post" enctype="multipart/form-data" asp-controller="Admin" asp-action="Crear">
+<form id="creacion" method="post" asp-controller="Admin" asp-action="Crear">
     @*TÍTULO*@
     <div class="mb-3">
-        <label for="titulo" class="form-label">Titulo</label>
-        <input name="titulo" type="text" class="form-control" id="titulo">
+        <label asp-for="contenido" class="form-label">Titulo</label>
+        <input asp-for="titulo" type="text" class="form-control" id="titulo">
     </div>
     
     @*CATEGORÍA*@
     <div class="mb-3">
-        <label for="titulo" class="form-label">Categoría</label>
-        <input name="categoria" type="text" class="form-control" id="categoria">
+        <label asp-for="contenido" class="form-label">Categoría</label>
+        <input asp-for="categoria" type="text" class="form-control" id="categoria">
     </div>
 
     @*CONTENIDO*@
     <div class="mb-3">
-        <label for="titulo" class="form-label">Contenido</label>
-        <textarea name="contenido" class="form-control" id="contenido"></textarea>
+        <label asp-for="contenido" class="form-label">Contenido</label>
+        <textarea asp-for="contenido" class="form-control" id="contenido"></textarea>
     </div>
 
     @*IMAGEN*@
     <div class="mb-3">
-        <label for="titulo" class="form-label">URL a la imagen</label>
-        <input name="imagen" type="text" class="form-control" id="imagen">
+        <label asp-for="contenido" class="form-label">URL a la imagen</label>
+        <input asp-for="imagen" type="text" class="form-control" id="imagen">
     </div>
 
     <button type="submit" class="btn btn-primary">Guardar</button>

@@ -53,35 +53,6 @@ namespace tp_grupal.Models
             return list;
         }
 
-        public static string Agregar (Articulo art)
-        {
-            string id = Guid.NewGuid().ToString();
-
-            Articulo a = new Articulo(
-                id, 
-                art.titulo, 
-                art.categoria, 
-                art.contenido, 
-                art.imagen
-            );
-
-            articulos.Add(id, a);
-            return id;
-        }
-
-        public static void Modificar (string id, Articulo art)
-        {
-            Articulo a = new Articulo(
-                id,
-                art.titulo,
-                art.categoria,
-                art.contenido,
-                art.imagen
-            );
-
-            articulos[id] = a;
-        }
-
         public static void Eliminar (string id)
         {
             articulos.Remove(id);
