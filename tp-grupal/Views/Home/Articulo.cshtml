@@ -6,21 +6,27 @@
 <div class="articulo-view container">
     <div class="row">
         <div class="col-3 lista-articulos">
-            <h2>Más artículos</h2>
-            <ul>
-                @foreach (Articulo a in Model.Item2)
-                {
-                    <li class="link-articulo">
-                        <a asp-controller="Home" asp-action="Articulo" asp-route-id="@a._id">@a.titulo</a>
-                    </li>
-                }
-            </ul>
+            <a class="btn btn-primary" data-bs-toggle="collapse" href="#mas-articulos-container" role="button" aria-expanded="false" aria-controls="mas-articulos-container">
+                Más artículos
+                </a>
+            <div class="collapse" id="mas-articulos-container">
+                <ul class="list-group">
+                    @foreach (Articulo a in Model.Item2)
+                    {
+                        <a asp-controller="Home" asp-action="Articulo" asp-route-id="@a._id">
+                            <li class="link-articulo list-group-item text-white bg-dark d-flex justify-content-between align-items-center">
+                                @a.titulo
+                            </li>
+                        </a>
+                    }
+                </ul>
+            </div>
         </div>
         <div class="col-5 articulo">
             <div class="texto">
-                <h1 class="display-1">@Model.Item1.titulo</h1>
+                <h1 class="titulo-articulo text-white">@Model.Item1.titulo</h1>
                 <br>
-                <div class="contenido">@Model.Item1.contenido</div>
+                <div class="contenido text-white">@Model.Item1.contenido</div>
             </div>
         </div>
         <div class="imagen col-4">
@@ -31,7 +37,17 @@
 
 <style>
     .lista-articulos {
-        height: 100%
-        overflow-y: auto
+        height: 100%;
+        padding: 10px;
+        overflow-y: auto;
+    }
+    
+    .link-articulo {
+        text-decoration: none;
+    }
+
+    .titulo-articulo {
+        font-family: 'Pacifico', cursive;
+        font-size: 5em;
     }
 </style>
