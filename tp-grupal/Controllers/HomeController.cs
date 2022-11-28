@@ -2,6 +2,7 @@
 using NuGet.Protocol;
 using NuGet.Protocol.Core.Types;
 using System.Diagnostics;
+using System.Linq;
 using tp_grupal.Data;
 using tp_grupal.Models;
 
@@ -10,12 +11,13 @@ namespace tp_grupal.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly ApplicationDbContext _db;
+        private readonly ApplicationDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger, ApplicationDbContext db)
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context)
         {
             _db = db;
             _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index(string query = null)
@@ -23,20 +25,20 @@ namespace tp_grupal.Controllers
             List<Articulo> articulos;
             if (query == null)
             {
-                articulos = GetAll();
+                articulos = _context.Articulos.ToList();
             }
             else
             {
-                articulos = Buscar(query);
+                articulos = _context.Articulos.Where(art => art.titulo.Contains(query)).ToList();
             }
 
             return View(articulos);
         }
 
-        public IActionResult Articulo(string id)
+        public IActionResult Articulo(int id)
         {
-            Articulo art = Get(id);
-            List<Articulo> otros = GetAll();
+            Articulo art = _context.Articulos.Find(id);
+            List<Articulo> otros = _context.Articulos.ToList();
             Tuple<Articulo, List<Articulo>> model = new Tuple<Articulo, List<Articulo>>(art, otros);
             return View(model);
         }

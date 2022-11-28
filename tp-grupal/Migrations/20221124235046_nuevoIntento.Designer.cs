@@ -11,8 +11,8 @@ using tp_grupal.Data;
 namespace tp_grupal.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221124140003_addArticulo")]
-    partial class addArticulo
+    [Migration("20221124235046_nuevoIntento")]
+    partial class nuevoIntento
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -25,8 +25,11 @@ namespace tp_grupal.Migrations
 
             modelBuilder.Entity("tp_grupal.Models.Articulo", b =>
                 {
-                    b.Property<string>("_id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("_id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("_id"), 1L, 1);
 
                     b.Property<string>("categoria")
                         .IsRequired()

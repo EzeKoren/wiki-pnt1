@@ -6,25 +6,17 @@ namespace tp_grupal.Controllers
 {
     public class AdminController : Controller
     {
-        private readonly ApplicationDbContext _db;
+        private readonly ApplicationDbContext _context;
 
-        public AdminController(ApplicationDbContext db)
+        public AdminController(ApplicationDbContext context)
         {
-            _db = db;
+            _context = context;
         }
 
-        public IActionResult Index(string query = null)
+        public IActionResult Index()
         {
-            List<Articulo> articulos;
-            if (query == null) 
-            { 
-                articulos = GetAll();
-            } else
-            {
-                articulos = Buscar(query);
-            }
-
-            return View(articulos);
+            var listado = _context.Articulos.ToList();
+            return View(listado);
         }
 
         public IActionResult Crear()
@@ -33,51 +25,42 @@ namespace tp_grupal.Controllers
         }
 
         [HttpPost]
-        public IActionResult Crear(IFormCollection col)
+        public IActionResult Crear(Articulo art)
         {
-            try
+            if (ModelState.IsValid)
             {
-                Articulo art = new Articulo(
-                    col["titulo"][0],
-                    col["categoria"][0],
-                    col["contenido"][0],
-                    col["imagen"][0]
-                );
-
-                Agregar(art);
-
+                _context.Articulos.Add(art);
+                _context.SaveChanges();
                 return Redirect("/admin");
-            } catch(Exception e)
-            {
-                
             }
+
+            return View(art);
+
         }
 
-        public IActionResult Editar(string id)
+        public IActionResult Editar(int id)
         {
-            Articulo art = Get(id);
+            var art = _context.Articulos.Find(id);
             return View(art);
         }
 
         [HttpPost]
-        public IActionResult Editar(IFormCollection col)
+        public IActionResult Editar(Articulo art)
         {
-            Articulo art = new Articulo(
-                col["titulo"][0],
-                col["categoria"][0],
-                col["contenido"][0],
-                col["imagen"][0]
-            );
+            if (ModelState.IsValid)
+            {
+                _context.Articulos.Update(art);
+                _context.SaveChanges();
+                return Redirect("/admin");
+            }
 
-            Modificar(col["_id"][0], art);
-
-            return Redirect("/admin");
+            return View(art);
         }
 
-        public IActionResult Eliminar(string id)
+        public IActionResult Eliminar(int id)
         {
-            EliminarDB(id);
-
+            _context.Articulos.Remove(_context.Articulos.Find(id));
+            _context.SaveChanges();
             return Redirect("/admin");
         }
 

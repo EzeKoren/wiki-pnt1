@@ -1,6 +1,7 @@
 ﻿using MessagePack;
 using Microsoft.AspNetCore.Http;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using KeyAttribute = System.ComponentModel.DataAnnotations.KeyAttribute;
 
 namespace tp_grupal.Models
@@ -8,38 +9,26 @@ namespace tp_grupal.Models
     public class Articulo
     {
         [Key]
-        public string _id { get; private set; }
-        [Required]
-        public string titulo { get; private set; }
-        [Required]
-        public string categoria { get; private set; }
-        [Required]
-        public string contenido { get; private set; }
-        [Required]
-        public string imagen { get; private set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int _id { get; set; }
 
-        public Articulo(string id, string titulo, string categoria, string contenido, string imagen)
-        {
-            _id = id;
-            this.titulo = titulo;
-            this.categoria = categoria;
-            this.contenido = contenido;
+        [Required(ErrorMessage = "Titulo es un campo obligatorio")]
+        [StringLength(50, ErrorMessage = "Titulo debe tener menos de 50 caracteres")]
+        [MinLength(4, ErrorMessage = "Titulo debe tenes mas de 4 caracteres")]
+        public string titulo { get; set; }
 
-            if (Uri.IsWellFormedUriString(imagen, UriKind.Absolute))
-                this.imagen = imagen;
-            else throw new ArgumentException("La imagen debe ser una URL valida");
+        [Required(ErrorMessage = "Categoria es un campo obligatorio")]
+        [StringLength(50, ErrorMessage = "Categoria debe tener menos de 50 caracteres")]
+        [MinLength(4, ErrorMessage = "Categoria debe tenes mas de 4 caracteres")]
+        public string categoria { get; set; }
 
-        }
-
-        public Articulo(string titulo, string categoria, string contenido, string imagen)
-        {
-            this.titulo = titulo;
-            this.categoria = categoria;
-            this.contenido = contenido;
-
-            if (Uri.IsWellFormedUriString(imagen, UriKind.Absolute))
-                this.imagen = imagen;
-            else throw new ArgumentException("La imagen debe ser una URL valida");
-        }
+        [Required(ErrorMessage = "Contenido es un campo obligatorio")]
+        [StringLength(1000, ErrorMessage = "Contenido debe tener menos de 1000 caracteres")]
+        [MinLength(20, ErrorMessage = "Contenido debe tenes mas de 20 caracteres")]
+        public string contenido { get; set; }
+        
+        [Required(ErrorMessage = "Imagen es un campo obligatorio")]
+        [Url(ErrorMessage = "Imagen debe ser una URL valida")]
+        public string imagen { get; set; }
     }
 }

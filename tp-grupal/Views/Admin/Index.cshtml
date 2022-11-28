@@ -21,7 +21,7 @@
                 @articulo.titulo <span class="badge text-bg-dark">@articulo.categoria</span>
             </span>
             <span>
-                <a class="badge bg-primary rounded-pill" asp-controller="Admin" asp-action="Editar" asp-route-id="@articulo._id">Editar</a>
+                <a class="badge bg-primary rounded-pill" asp-route-id="@articulo._id" asp-controller="Admin" asp-action="Editar">Editar</a>
                 <a class="badge bg-danger rounded-pill" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar</a>
             </span>
         </li>
