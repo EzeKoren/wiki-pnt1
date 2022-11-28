@@ -3,31 +3,31 @@
     ViewData["Title"] = "Crear artículo";
 }
 
-<h1>Crear artículo</h1>
+<h1 class="text-white">Crear artículo</h1>
 <div asp-validation-summary="All" class="text-danger"></div>
 <form id="creacion" method="post" asp-controller="Admin" asp-action="Crear">
     @*TÍTULO*@
     <div class="mb-3">
-        <label asp-for="contenido" class="form-label">Titulo</label>
-        <input asp-for="titulo" type="text" class="form-control" id="titulo">
+        <label asp-for="contenido" class="form-label text-white">Titulo</label>
+        <input asp-for="titulo" type="text" class="form-control bg-dark text-white" id="titulo">
     </div>
     
     @*CATEGORÍA*@
     <div class="mb-3">
-        <label asp-for="contenido" class="form-label">Categoría</label>
-        <input asp-for="categoria" type="text" class="form-control" id="categoria">
+        <label asp-for="contenido" class="form-label text-white">Categoría</label>
+        <input asp-for="categoria" type="text" class="form-control bg-dark text-white" id="categoria">
     </div>
 
     @*CONTENIDO*@
     <div class="mb-3">
-        <label asp-for="contenido" class="form-label">Contenido</label>
-        <textarea asp-for="contenido" class="form-control" id="contenido"></textarea>
+        <label asp-for="contenido" class="form-label text-white">Contenido</label>
+        <textarea asp-for="contenido" class="form-control bg-dark text-white" id="contenido"></textarea>
     </div>
 
     @*IMAGEN*@
     <div class="mb-3">
-        <label asp-for="contenido" class="form-label">URL a la imagen</label>
-        <input asp-for="imagen" type="text" class="form-control" id="imagen">
+        <label asp-for="contenido" class="form-label text-white">URL a la imagen</label>
+        <input asp-for="imagen" type="text" class="form-control bg-dark text-white" id="imagen">
     </div>
 
     <button type="submit" class="btn btn-primary">Guardar</button>

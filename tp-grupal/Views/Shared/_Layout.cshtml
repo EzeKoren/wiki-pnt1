@@ -9,8 +9,11 @@
     <link rel="stylesheet" href="~/tp_grupal.styles.css" asp-append-version="true" />
 </head>
 <body>
+    <div class="bgContainer dark">
+        <div class="bg"></div>
+    </div>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">tp_grupal</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -20,10 +23,10 @@
                 <div class="navbar-collapse collapse d-sm--flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index">Admin dashboard</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Admin" asp-action="Index">Admin dashboard</a>
                         </li>
                     </ul>
                 </div>
@@ -35,15 +38,118 @@
             @RenderBody()
         </main>
     </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - tp_grupal - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    
+    <style>
+        
+.light {
+    background-color: #091970;
+}
+
+.dark {
+    background-color: #010b14;
+}
+
+:root {
+    --duration: 8s;
+}
+
+body {
+    margin: 0;
+}
+
+.bgContainer {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg {
+    filter: blur(5vw);
+    position: fixed;
+    display: block;
+    width: 100vw;
+    height: 100vh;
+}
+
+.circle {
+    --pos-x: 50%;
+    --pos-y: 50%;
+    --end-x: 50%;
+    --end-y: 50%;
+    position: absolute;
+    text-align: center;
+    width: min(40vw, 450px);
+    height: min(40vw, 450px);
+    /* max-width: 450px; */
+    /* max-height: 450px; */
+    border-radius: 50%;
+    display: inline-block;
+    animation: move var(--duration) linear normal forwards;
+}
+
+@@keyframes move {
+    0% {
+        opacity: 0%;
+        left: calc(var(--pos-x) - min(20vw, 225px));
+        top: calc(var(--pos-y) - min(20vw, 225px));
+    }
+
+    10% {
+        opacity: 50%;
+    }
+
+    90% {
+        opacity: 50%;
+    }
+
+    100% {
+        opacity: 0%;
+        left: calc(var(--end-x) - 225px);
+        top: calc(var(--end-y) - 225px);
+        display: none;
+        visibility: hidden;
+    }
+}
+    </style>
+
+    <script>
+        let bg = document.querySelector(".bg");
+
+        document.addEventListener("DOMContentLoaded", () => {
+            setInterval(() => {
+                createCircle();
+                createCircle();
+                createCircle();
+                createCircle();
+                createCircle();
+            }, 1000);
+        });
+
+        function createCircle() {
+            let circle = document.createElement("div");
+            circle.classList.add("circle");
+            if (Math.random() > 0.35) circle.classList.add("light");
+            else circle.classList.add("dark");
+            circle.style.setProperty("--pos-x", Math.floor(Math.random() * 100) + "%");
+            circle.style.setProperty("--pos-y", Math.floor(Math.random() * 100) + "%");
+            circle.style.setProperty("--end-x", Math.floor(Math.random() * 100) + "%");
+            circle.style.setProperty("--end-y", Math.floor(Math.random() * 100) + "%");
+            console.log(circle);
+            setTimeout(() => {
+                circle.remove();
+            }, 8500);
+            bg.appendChild(circle);
+        }
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

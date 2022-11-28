@@ -1,18 +1,26 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+        font-weight: 500;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
+    font-weight: 500;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    font-weight: 500;
+}
+
+* {
+    font-weight: 500;
 }

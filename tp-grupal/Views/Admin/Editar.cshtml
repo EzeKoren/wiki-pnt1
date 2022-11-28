@@ -3,7 +3,7 @@
     ViewData["Title"] = "Edición de artículo";
 }
 
-<h1>Edición de artículo</h1>
+<h1 class="text-white">Edición de artículo</h1>
 <div asp-validation-summary="All" class="text-danger"></div>
 <form id="edicion" method="post" asp-controller="Admin" asp-action="Editar">
     @*ID*@
@@ -11,26 +11,26 @@
 
     @*TÍTULO*@
     <div class="mb-3">
-        <label asp-for="titulo" class="form-label">Titulo</label>
-        <input asp-for="titulo" type="text" class="form-control" id="titulo" value="@Model.titulo">
+        <label asp-for="titulo" class="form-label text-white">Titulo</label>
+        <input asp-for="titulo" type="text" class="form-control bg-dark text-white" id="titulo" value="@Model.titulo">
     </div>
 
     @*CATEGORÍA*@
     <div class="mb-3">
-        <label asp-for="categoria" class="form-label">Categoría</label>
-        <input asp-for="categoria" type="text" class="form-control" id="categoria" value="@Model.categoria">
+        <label asp-for="categoria" class="form-label text-white">Categoría</label>
+        <input asp-for="categoria" type="text" class="form-control bg-dark text-white" id="categoria" value="@Model.categoria">
     </div>
 
     @*CONTENIDO*@
     <div class="mb-3">
-        <label asp-for="contenido" class="form-label">Contenido</label>
-        <textarea asp-for="contenido" class="form-control" id="contenido">@Model.contenido</textarea>
+        <label asp-for="contenido" class="form-label text-white">Contenido</label>
+        <textarea asp-for="contenido" class="form-control bg-dark text-white" id="contenido">@Model.contenido</textarea>
     </div>
 
     @*IMAGEN*@
     <div class="mb-3">
-        <label asp-for="imagen" class="form-label">URL a la imagen</label>
-        <input asp-for="imagen" type="text" class="form-control" id="imagen" value="@Model.imagen">
+        <label asp-for="imagen" class="form-label text-white">URL a la imagen</label>
+        <input asp-for="imagen" type="text" class="form-control bg-dark text-white" id="imagen" value="@Model.imagen">
     </div>
 
     <button type="submit" class="btn btn-primary">Guardar</button>
