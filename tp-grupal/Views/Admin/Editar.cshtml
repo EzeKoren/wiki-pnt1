@@ -4,7 +4,7 @@
 }
 
 <h1>Edición de artículo</h1>
-
+<div asp-validation-summary="All" class="text-danger"></div>
 <form id="edicion" method="post" asp-controller="Admin" asp-action="Editar">
     @*ID*@
     <input asp-for="_id" id="_id" value="@Model._id" style="display: none;">
