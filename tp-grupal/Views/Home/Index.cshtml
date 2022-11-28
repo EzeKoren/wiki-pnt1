@@ -11,20 +11,46 @@
         </div>
     </form>
 
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    <div class="card-group">
         @foreach (var articulo in Model) {
-            <div class="col">
-                <div class="card shadow-sm text-center" style="width: 18rem;">
-                    <img src="@articulo.imagen" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">@articulo.titulo</h5>
-                        <p class="card-text">
-                            <span class="badge bg-primary rounded-pill">@articulo.categoria</span>
-                        </p>
-                        <a asp-controller="Home" asp-action="Articulo" asp-route-id="@articulo._id" class="btn btn-primary">Leer más</a>
-                    </div>
+            <div class="card bg-dark text-light shadow-sm text-center" style="width: 18rem;">
+                <img src="@articulo.imagen" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">@articulo.titulo</h5>
+                    <p class="card-text">
+                        <span class="badge bg-primary rounded-pill">@articulo.categoria</span>
+                    </p>
+                    <a asp-controller="Home" asp-action="Articulo" asp-route-id="@articulo._id" class="btn btn-primary">Leer más</a>
                 </div>
             </div>
         }
     </div>
 </div>
+
+<style>
+    .card-img-top {
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+    }
+
+    .card-title {
+        --webkit-line-clamp: 1;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .card, .card-group {
+        transition: 0.25s ease-in-out;
+    }
+    
+    .card:hover{
+        opacity: 1 !important;
+        z-index: 10;
+        transform: scale(1.05);
+        box-shadow: 0 1rem 3rem 2rem rgba(0,0,0,.175) !important;
+    }
+    .card-group:has(> .card:hover) > .card:not(:hover) {
+        opacity: 0.95;
+    }
+</style>
