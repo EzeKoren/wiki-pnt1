@@ -25,6 +25,14 @@ namespace tp_grupal.Controllers
             if (query == null)
             {
                 articulos = _context.Articulos.ToList();
+                // IMPORTANTE:
+                /* En caso de que esta línea lanzara una SqlException, revisar el archivo
+                 * "/appsettings.json". El parámetro ConnectionStrings.tp_grupalContext
+                 * debe editarse para reflejar el entorno local, de lo contrario ese error
+                 * será lanzado, y detendrá la ejecución del programa; esto es por diseño,
+                 * el programa no se debe ejecutar en un entorno que no está preparado para
+                 * su ejecución.
+                 */
             }
             else
             {
